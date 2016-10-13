@@ -46,7 +46,7 @@ captures/
 .idea/workspace.xml
 
 # Keystore files
-*.jks
+#*.jks
 
 app/libs/
 app/src/main/res/drawable/
