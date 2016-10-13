@@ -19,9 +19,9 @@ android {
 
         myConfig {
             storeFile file("../testSign.jks")
-            storePassword "Lsy1234567"
+            storePassword "123456"
             keyAlias "litian"
-            keyPassword "Lsy1234567"
+            keyPassword "123456"
         }
     }
 
