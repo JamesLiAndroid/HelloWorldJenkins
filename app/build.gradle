@@ -11,11 +11,31 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        debug {
+            storeFile file("debug.keystore")
+        }
+
+        myConfig {
+            storeFile file("../testSign.jks")
+            storePassword "Lsy1234567"
+            keyAlias "litian"
+            keyPassword "Lsy1234567"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.myConfig
         }
+    }
+
+    android.applicationVariants.all { variant ->
+        def file = variant.outputs[0].outputFile
+        variant.outputs[0].outputFile = new File(file.parent, file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk"))
     }
 }
 
